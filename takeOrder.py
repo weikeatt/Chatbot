@@ -76,7 +76,7 @@ def remarks():
 
 def payment():
     while True:
-        print("\nThe total is RM" + str(total))
+        print("\nThe total is RM" + str(float(total)))
         pay = int(input("How would you like to pay?\n1 - Cash\n2 - Card\n>> "))
         if pay == 1:
             print("Cash payment is selected")
