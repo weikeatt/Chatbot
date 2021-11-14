@@ -1,0 +1,68 @@
+{"intents": [
+  {"tag": "greeting",
+   "patterns": ["Hi there", "How are you", "Is anyone there?","Hey", "Wassup", "Hola", "Hello", "Good day", "Excuse me", "Halo", "Yo"],
+   "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?", "Good day, how can I help?"]
+  },
+  {"tag": "goodbye",
+   "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "ciao", "buaii", "see u later", "have a nice day", "Bye bye"],
+   "responses": ["See you!", "Thank you and have a nice day", "Bye! Come back again soon.", "Bye bye!"]
+  },
+  {"tag": "thanks",
+   "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me", "tq", "thx", "tenks"],
+   "responses": ["Happy to help!", "Any time!", "My pleasure!", "You're most welcome!"]
+  },
+  {"tag": "noanswer",
+   "patterns": [""],
+   "responses": ["Sorry, can't understand you", "Please give me more information", "Could you rephrase that please?",
+                 "Not sure I understand", "Sorry, can you repeat again"]
+  },
+  {"tag": "stalls",
+    "patterns": ["What stalls are available?", "What stalls are open?", "What cuisine do you have?", "stalls?", "search stalls", "see stalls",
+                 "see available stalls", "what stalls are there?", "what cuisines are there?",
+                 "what are the stalls available?", "what are the cuisines available?", "may i know what are the stalls available?", "got what stalls?"],
+    "responses": ["The available stores opened are Malay, Mamak, Beverage, Japanese, and Korean"]
+  },
+  {"tag": "business_hours",
+    "patterns": ["What's your working hours?", "What's your business hours?", "What time do you open?", "business hours?"],
+    "responses": ["We open from 9am to 9pm"]
+  },
+  {"tag": "malay",
+  "patterns" : ["What food does malay stall sells?", "Do you serve malay food?", "malay stall", "malay", "what malay food is there?"],
+  "responses": ["Malay stall sells nasi lemak, a variety of nasi goreng, ikan goreng, ayam goreng, satay, and kuih."]
+  },
+  {"tag": "mamak",
+  "patterns": ["What food does mamak stall sells?", "Do you serve mamak food?", "mamak stall", "mamak"],
+  "responses":  ["Mamak stall serves a variety of roti, mee goreng, maggi goreng, teh tarik, cincau ais, milo ais, limau drink and more."]
+  },
+  {"tag": "beverage",
+  "patterns": ["What drinks does beverage stall sells?", "What drinks do you have?", "I am feeling thirsty", "drinks?", "I want some drinks", "beverage"],
+  "responses":  ["Beverage stall serves a variety of juices, brewed coffee, American coffee, Hot mocha/Iced mocha"]
+  },
+  {"tag": "korean",
+  "patterns": ["What food does korean stall sells?", "Do you serve Korean food?", "food from Korea", "korean stall", "korean", "korea", "what Korean food is there"],
+  "responses":  ["Korean stall serves kimchi/gimbap, kimchi fried rice, ramyun, japchae, bibimbap", "Korean stall serves bulgogi rice, jjajangmyeon and tteok too"]
+  },
+  {"tag": "japanese",
+  "patterns": ["What food does japanese stall sells?", "Do you serve Japanese food?", "food from Japan", "Japanese stall", "Japan", "japanese food"],
+  "responses":  ["Japanese stall serves chawanmushi, gyoza, tempura, egg roll", "Japanese stall serves a variety of bento", "Japanese stall has several set lunch and set dinner with comes with miso soup and chawanmushi"]
+  },
+  {"tag": "delivery_service",
+  "patterns": ["Do you provide delivery service?", "Can you send to me", "i'd like to get it delivered please", "i'd like to get my food delivered",
+               "dine in", "i'd like to dine-in", "deliver please", "i would like to dine in", "i would like to have it delivered", "get it delivered please",
+               "dining in", "dine-in", "dine in", "delivery"],
+  "responses":  ["Most of the item on the food comes with free delivery while some food does not provide delivery."]
+  },
+  {"tag": "food_quantity_order",
+  "patterns": ["can i get two", "i'd like to get three", "i'd like one", "i would like 5", "i want one", "2 please", "1 please.", "4 please?", "can i get 3?"],
+  "responses":  ["Sure thing, let me get your order!", "Not a problem, let me write it down!", "I'll take that down!"]
+  },
+  {"tag": "payment_method",
+  "patterns": ["Can i pay by cash?", "I'd like to pay by card", "I'd like to pay by cash", "I'd like to pay by card"],
+  "responses":  ["Sure thing, I will let the cashier know!", "Not a problem, just make sure you have enough money HAHAHA!"]
+  },
+	{"tag": "personal_question",
+  "patterns": ["Are you a bot?", "Are you a robot?"],
+  "responses":  ["I am Alexa, your personal assistant, and also your best friend."]
+  }
+  ]
+}
