@@ -4,7 +4,7 @@ from datetime import datetime
 now = datetime.now()
 current_time = now.strftime("%H:%M:%S")
 
-data = pd.read_excel(r'C:\Users\Acer\PycharmProjects\AI_ChatBot\food_list.xlsx')
+data = pd.read_excel(r'C:\Users\Acer\PycharmProjects\AI_ChatBot\original_food_list.xlsx')
 df = pd.DataFrame(data)
 
 
@@ -39,7 +39,7 @@ def calculate():
     food_list = []
     food_list.extend(repeat(food, quantity))
     for all_food in food_list:
-        food_index = df[df["item_name"] == all_food.lower()].index.values
+        food_index = df[df["item_name"].str.lower() == all_food.lower()].index.values
         total += df.loc[food_index, 'price'].values
 
 
@@ -47,7 +47,7 @@ def eat_where():
     check = True
     while check:
         location = int(input("\nChoose an option:-\n1 - Dine in\n2 - Delivery\n>> "))
-        food_index = df[df["item_name"] == food.lower()].index.values
+        food_index = df[df["item_name"].str.lower() == food.lower()].index.values
         if location == 1:
             check = False
         if location == 2:
