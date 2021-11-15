@@ -5,13 +5,13 @@ import time
 import random
 import pandas as pd
 
-
 import takeOrder as to
 
 import nltk
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 
+# Load training model
 from keras.models import load_model
 model = load_model('chatbot_model.h5')
 
@@ -20,24 +20,28 @@ words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
 
 
+# Tokenize and create base word
 def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)
     sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
     return sentence_words
 
 
+# Tokenize pattern and choose bag of words
 def bag_of_words(sentence, words, show_details=True):
     sentence_words = clean_up_sentence(sentence)
     bag = [0] * len(words)
     for s in sentence_words:
         for i, word in enumerate(words):
             if word == s:
+                # Assign 1 if current word is in vocab position
                 bag[i] = 1
                 if show_details:
                     print("Found in bag: %s" % word)
     return np.array(bag)
 
 
+# Filter out predictions below a threshold
 def predict_class(sentence):
     p = bag_of_words(sentence, words, show_details=False)
     res = model.predict(np.array([p]))[0]
@@ -50,6 +54,7 @@ def predict_class(sentence):
     return return_list
 
 
+# Read responses from intents.json and choose randomly to reply user
 def getResponse(ints, intents_json):
     tag = ints[0]['intent']
     list_of_intents = intents_json['intents']
@@ -60,6 +65,7 @@ def getResponse(ints, intents_json):
     return result
 
 
+# Read all details of food from excel and print based on stall name
 def print_menu():
     data = pd.read_excel(r'C:\Users\Acer\PycharmProjects\AI_ChatBot\original_food_list.xlsx')
     while True:
@@ -94,6 +100,7 @@ def print_menu():
             print("\nSorry, I don't understand. Please try again")
 
 
+# Get username
 print("\nChatbot initialized\n")
 username = input("What's your name?\n>>")
 print("Good day " + username + "! Please choose the options below:-")
@@ -106,6 +113,7 @@ while True:
         print("Stalls available:-")
         print("Malay | Mamak | Beverage | Japanese | Korean")
         print_menu()
+        # Encapsulation
         to.choose_food()
         to.calculate()
         to.eat_where()
@@ -115,6 +123,7 @@ while True:
     elif message == '2':
         print("\nConnecting to agent...\nI am Alexa. How can I help?")
         while True:
+            # Conversational bot with trained model
             message = input(">> ")
             ints = predict_class(message)
             res = getResponse(ints, intents)
